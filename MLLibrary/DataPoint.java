@@ -1,26 +1,43 @@
 public class DataPoint {
+  public int pclass;
+  public int survived;
+  public String name;
+  public String gender;
   public double f1;
   public double f2;
-  public String label;
-  public String type;
 
-  public DataPoint(double f1Param, double f2Param, String label, String type) {
+  public DataPoint(int pcparam, int sparam, String nparam, String gparam, double f1Param, double f2Param) {
+    this.pclass = pcparam;
+    this.survived = sparam;
+    this.name = nparam;
+    this.gender = gparam;
     this.f1 = f1Param;
     this.f2 = f2Param;
-    this.label = label;
-    this.type = type;
   }
 
   public DataPoint() {
-    this(0, 0, "", "");
+    this(0, 0, "", "", 0, 0);
   }
 
-  public String getLabel() {
-    return this.label;
+  public TestDataPoint(double f1Param, double f2Param) {
+    this.f1 = f1Param;
+    this.f2 = f2Param;
   }
 
-  public String getType() {
-    return this.type;
+  public int getPlcass() {
+    return this.plcass;
+  }
+
+  public int getSurvived() {
+    return this.survived;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public String getGender() {
+    return this.gender;
   }
 
   public double getf2() {
@@ -40,7 +57,7 @@ public class DataPoint {
     f2 = val;
   }
 
-
+/*
   public void setLabel(String label) {
     this.label = label;
   }
@@ -54,4 +71,5 @@ public class DataPoint {
     return "(" + this.f1 + "," + this.f2 + "," + this.label + "," + this.type + ")";
 
   }
+  */
 }

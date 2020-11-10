@@ -24,7 +24,7 @@ public class DummyModel extends Model {
 		double maxf2Type2 = 0;
 
 		for (int i = 0; i < trainData.size; i++) {
-			if (trainData.get(i).getLabel() == "American") {
+			if (trainData.get(i).getLabel() == "FirstLabel") {
 				if (trainData.get(i).getf1() > maxf1Label1) {
 					maxf1Label1 = trainData.get(i).getf1();
 				}
@@ -33,7 +33,7 @@ public class DummyModel extends Model {
 				}
 			}
 
-			if (trainData.get(i).getLabel() == "Japanese") {
+			if (trainData.get(i).getLabel() == "SecondLabel") {
 				if (trainData.get(i).getf1() > maxf1Label2) {
 					maxf1Label2 = trainData.get(i).getf1();
 				}
@@ -42,7 +42,7 @@ public class DummyModel extends Model {
 				}
 			}
 
-			if (trainData.get(i).getType() == "Action") {
+			if (trainData.get(i).getType() == "FirstType") {
 				if (trainData.get(i).getf1() > maxf1Type1) {
 					maxf1Type1 = trainData.get(i).getf1();
 				}
@@ -51,7 +51,7 @@ public class DummyModel extends Model {
 				}
 			}
 
-			if (trainData.get(i).getType() == "Strategy") {
+			if (trainData.get(i).getType() == "SecondType") {
 				if (trainData.get(i).getf1() > maxf1Type2) {
 					maxf1Type2 = trainData.get(i).getf1();
 				}
@@ -61,10 +61,14 @@ public class DummyModel extends Model {
 			}
 
 		
-		this.maxf1Label = maxf1Label;
-		this.maxf1Type = maxf1Type;
-		this.maxf2Label = maxf2Label;
-		this.maxf2Type = maxf2Type;
+		this.maxf1Label1 = maxf1Label;
+		this.maxf1Label2 = maxf1Label2;
+		this.maxf1Type1 = maxf1Type1;
+		this.maxf1Type2 = maxf1Type2;
+		this.maxf2Label1 = maxf2Label;
+		this.maxf2Label2 = maxf2Label2;
+		this.maxf2Type1 = maxf2Type1;
+		this.maxf2Type2 = maxf2Type2;
 	}
 	}
 	
