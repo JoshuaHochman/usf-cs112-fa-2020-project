@@ -1,43 +1,92 @@
+import java.io.File;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.*;
+import java.lang.Math;
+
+
+
 public class DataPoint {
-  public int pclass;
-  public int survived;
-  public String name;
-  public String gender;
   public double f1;
   public double f2;
+  public String label;
+  public String type;
 
-  public DataPoint(int pcparam, int sparam, String nparam, String gparam, double f1Param, double f2Param) {
-    this.pclass = pcparam;
-    this.survived = sparam;
-    this.name = nparam;
-    this.gender = gparam;
+
+  public List<String> getRecordFromLine(String line) {
+    List<String> values = new ArrayList<String>();
+    try (Scanner rowScanner = new Scanner(line)) {
+      rowScanner.useDelimiter(",");
+      while (rowScanner.hasNext()) {
+        values.add(rowScanner.next());
+      }
+    }
+    return values;
+  }
+
+  public List<DataPoint> TitanicScan() {
+    List<DataPoint> dataPoints = new ArrayList<DataPoint>();
+
+    try (Scanner scanner = new Scanner(new File("titanic.csv"))) {
+      while (scanner.hasNextLine()) {
+        List<String> records = getRecordFromLine(scanner.nextLine());
+        DataPoint point = new DataPoint(Double.valueOf(records.get(5)), Double.valueOf(records.get(6)), records.get(1), "");
+        dataPoints.add(point);
+
+
+
+
+      
+
+      }
+    // TODO: Select the columns from the records and create a DataPoint object
+    // TODO: Store the DataPoint object in a collection
+    } catch (Exception e) {
+      System.out.println("Runtime Error");
+    }
+    return dataPoints;
+  }
+
+
+  public void SplitData(DataPoint datapoint) {
+    Random rand = new Random();
+    double randNum = rand.nextDouble();
+    // 90% of the data is reserved for training
+    if (randNum < 0.9) {
+      datapoint.setType("train");
+      
+
+    // Set the type of DataPoint as “train” and put into the Collection
+
+    } else {
+      datapoint.setType("test");
+    // Set the type of DataPoint as “test” and put into the Collection
+    }
+  }
+
+
+  public DataPoint(double f1Param, double f2Param, String label, String type) {
     this.f1 = f1Param;
     this.f2 = f2Param;
+    this.label = label;
+    this.type = type;
   }
 
   public DataPoint() {
-    this(0, 0, "", "", 0, 0);
+    this(0, 0, "", "");
   }
 
-  public TestDataPoint(double f1Param, double f2Param) {
-    this.f1 = f1Param;
-    this.f2 = f2Param;
+
+
+
+  
+
+  public String getLabel() {
+    return this.label;
   }
 
-  public int getPlcass() {
-    return this.plcass;
-  }
-
-  public int getSurvived() {
-    return this.survived;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public String getGender() {
-    return this.gender;
+  public String getType() {
+    return this.type;
   }
 
   public double getf2() {
@@ -57,7 +106,7 @@ public class DataPoint {
     f2 = val;
   }
 
-/*
+
   public void setLabel(String label) {
     this.label = label;
   }
@@ -71,5 +120,16 @@ public class DataPoint {
     return "(" + this.f1 + "," + this.f2 + "," + this.label + "," + this.type + ")";
 
   }
-  */
+
+
+
+
+
+
+
 }
+
+
+
+
+
