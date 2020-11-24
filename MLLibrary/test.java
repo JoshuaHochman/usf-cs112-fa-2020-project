@@ -35,7 +35,7 @@ public class test {
         List<String> records = getRecordFromLine(scanner.nextLine());
 
         //records.set(5, Double.valueOf(records.get(5)));
-        System.out.println(records.get(1) * 1);
+        System.out.println(records.get(1));
         //System.out.println(scanner.nextLine());
       }
     }
