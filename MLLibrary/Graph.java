@@ -213,10 +213,17 @@ public class Graph extends JPanel {
         // Feel free to change the size of the panel
         mainPanel.setPreferredSize(new Dimension(700, 600));
 
+        GridLayout layout = new GridLayout(3, 1);
+
+        ProjectSlider tester = new ProjectSlider();
+
         /* creating the frame */
-        JFrame frame = new JFrame("CS 112 Lab Part 3");
+        JFrame frame = new JFrame("CS 112 Lab Part 3 & 4");
+        frame.setLayout(layout);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(mainPanel);
+        frame.getContentPane().add(JLabel("Chosse the majority value"))
+        frame.getContentPaine().add(tester);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
